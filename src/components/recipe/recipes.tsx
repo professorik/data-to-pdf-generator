@@ -13,6 +13,7 @@ function Recipes() {
             <Leaflet recipe={recipe}/>
             <Leaflet recipe={recipe}/>
             { nums.map(it => <RecipeWrapper recipe={recipe} num={it}/>) }
+            { nums.length % 2 && <RecipeWrapper recipe={null} num={1}/>}
         </UserPage>
     ));
 

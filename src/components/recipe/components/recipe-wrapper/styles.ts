@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding-bottom: 20px;
   padding-top: 40px;
   position: relative;
+  background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/background.png?raw=true);
   &:after{
     content: "";
     display: table;

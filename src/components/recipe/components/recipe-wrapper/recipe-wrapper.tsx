@@ -18,7 +18,9 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
         background: num % 2 === 0 ? "yellow" : "red",
         transform: num % 2 === 0 ? "rotate(90deg);" : "rotate(-90deg);"
     };
-    //console.log(divStyle);
+    if (recipe === null){
+        return <Container style={divStyle} />
+    }
     return (
         <Container style={divStyle}>
             <LeftItem>
