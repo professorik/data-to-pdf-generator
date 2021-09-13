@@ -3,6 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   margin-left: -1.7in;
   margin-right: 1.7in;
+  &:not(:last-child){
+    margin-bottom: 3.4in;
+  }
+  &:last-child{
+    margin-bottom: 1.7in;
+  }
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;

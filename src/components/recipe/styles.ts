@@ -7,7 +7,7 @@ export const Container = styled.div`
 `
 
 export const UserPage = styled.div`
-    margin-bottom: 1.7in;
+    
 `
 
 export const GlobalStyle = createGlobalStyle`
