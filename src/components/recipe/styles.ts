@@ -6,6 +6,10 @@ export const Container = styled.div`
   margin: 5px;
 `
 
+export const UserPage = styled.div`
+    margin-bottom: 163px;
+`
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -14,5 +18,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  @page :pseudo-selector{
+    size: landscape;
   }
 `

@@ -1,18 +1,19 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
 import {Recipe} from "../../../../common/types/recipe/recipe.type";
-import {Container, FooterLabel, IdLabel, LeftItem, RightItem} from './styles'
+import {Container} from './styles'
+import {FooterLabel, IdLabel, LeftItem, RightItem} from "../recipe-wrapper/styles";
+import ImageContainer from "../photo-container/photo-container";
 import Tip from "../tip/tip";
 import NutrientsList from "../nutrients/nutrients-list";
 import IngredientsList from "../ingredients/ingredients-list";
 import Instruction from "../instruction/instruction";
-import ImageContainer from "../photo-container/photo-container";
 
 type Props = {
     recipe: Recipe;
 };
 
-const RecipeWrapper: FC<Props> = ({recipe}) => {
+const Leaflet: FC<Props> = ({recipe}) => {
     return (
         <Container>
             <LeftItem>
@@ -39,4 +40,4 @@ const RecipeWrapper: FC<Props> = ({recipe}) => {
     );
 };
 
-export default RecipeWrapper;
+export default Leaflet;

@@ -22,7 +22,6 @@ async function convertPuppeteer() {
     await page.pdf({
         format: 'A4',
         printBackground: true,
-        landscape: true,
         path: `./test2.pdf`,
     });
     await browser.close();

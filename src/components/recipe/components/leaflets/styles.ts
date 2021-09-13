@@ -1,22 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  margin-left: -1.7in;
-  margin-right: 1.7in;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-top: 40px;
   position: relative;
-  background-color: red;
+  background-color: green;
   &:after{
     content: "";
     display: table;
     clear: both;
   }
-  width: 11.7in;
-  height: 8.3in;
-  transform: rotate(90deg);
+  width: 8.3in;
+  height: 11.7in;
 `
 
 export const Item = styled.div`
