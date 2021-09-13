@@ -10,11 +10,17 @@ import ImageContainer from "../photo-container/photo-container";
 
 type Props = {
     recipe: Recipe;
+    num: number;
 };
 
-const RecipeWrapper: FC<Props> = ({recipe}) => {
+const RecipeWrapper: FC<Props> = ({recipe, num}) => {
+    const divStyle = {
+        background: num % 2 === 0 ? "yellow" : "red",
+        transform: num % 2 === 0 ? "rotate(90deg);" : "rotate(-90deg);"
+    };
+    //console.log(divStyle);
     return (
-        <Container>
+        <Container style={divStyle}>
             <LeftItem>
                 <h4>Hi {recipe.firstname} </h4>
                 <ImageContainer
@@ -36,7 +42,7 @@ const RecipeWrapper: FC<Props> = ({recipe}) => {
             <FooterLabel>{recipe.recipe_foot_note}</FooterLabel>
             <IdLabel>{recipe.print_id}</IdLabel>
         </Container>
-    );
+    )
 };
 
 export default RecipeWrapper;

@@ -8,7 +8,6 @@ export const Container = styled.div`
   padding-bottom: 20px;
   padding-top: 40px;
   position: relative;
-  background-color: red;
   &:after{
     content: "";
     display: table;
@@ -16,7 +15,6 @@ export const Container = styled.div`
   }
   width: 11.7in;
   height: 8.3in;
-  transform: rotate(90deg);
 `
 
 export const Item = styled.div`
