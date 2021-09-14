@@ -5,8 +5,7 @@ export const Container = styled.div`
   height: 1122px;
   padding: 40px 96px 20px 96px;
   position: relative;
-  background-color: green;
-  background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/background.png?raw=true);
+  background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/master/assets/background.png?raw=true);
   &:after{
     content: "";
     display: table;

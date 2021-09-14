@@ -9,8 +9,8 @@ type Props = {
 };
 
 const Tip: FC<Props> = ({tip}) => {
-  const lampIcon = "https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/light-bulb%201.png?raw=true";
-  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/author_round.png?raw=true";
+  const lampIcon = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/light-bulb%201.png?raw=true";
+  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/author_round.png?raw=true";
   return (
     <Container>
       <Icon src={lampIcon} alt={"icon_tip"} />

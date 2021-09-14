@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Info: FC<Props> = ({user}) => {
-    const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0f63bf9073f183d4808a91d1716c877f1660742f/assets/Wyldr_logo_bigicon%403x.svg";
+    const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     return (
         <Card>
             <QRCode

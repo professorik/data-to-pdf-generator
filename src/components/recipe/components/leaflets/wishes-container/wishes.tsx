@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Wishes: FC<Props> = ({wishes}) => {
-  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/author_round.png?raw=true";
+  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/author_round.png?raw=true";
   return (
     <Container>
       <Card>
