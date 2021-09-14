@@ -4,16 +4,25 @@ import os from "os";
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 
-const excelPath = os.tmpdir()+'/xlsxFigmaRecipeFile.xlsx';
-const jsonPath = os.tmpdir()+'/DB.json';
+const excelPath = '';//os.tmpdir()+'/xlsxFigmaRecipeFile.xlsx';
+const jsonPath = '';//os.tmpdir()+'/DB.json';
+
+import recipeDB from "../../../database.json"
+
+const getRecipe = (
+): Recipe[] | null => {
+  // @ts-ignore
+  return recipeDB;
+};
 
 const getRecipes = (): Recipe[] => {
-  if (fs.existsSync(excelPath)){
+  return getRecipe();
+ /* if (fs.existsSync(excelPath)){
     return getRecipeFromApi();
   }else if (fs.existsSync(jsonPath)){
     return getRecipeFromApiJSON();
   }
-  return [];
+  return [];*/
 }
 
 const getRecipeFromApi = (): Recipe[] => {

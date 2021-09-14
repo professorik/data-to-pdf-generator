@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-top: 40px;
+  width: 1122px;
+  height: 794px;
+  margin-left: -1.7in;
+  margin-right: 1.7in;
+  margin-top: 1.7in;
+  margin-bottom: 3.4in;
+  padding: 40px 20px 20px 20px;
   position: relative;
-  height: 792px;
+  background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/feature/orientation/assets/background.png?raw=true);
   &:after{
     content: "";
     display: table;
     clear: both;
   }
+`
+
+export const Kar = styled.div`
+  width: 8.3in;
+  height: 11.7in;
 `
 
 export const Item = styled.div`
@@ -44,4 +52,12 @@ export const FooterLabel = styled.p`
   font-size: 12px;
   bottom: 0px;
   left: 20px;
+`
+
+export const Logo = styled.image`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
 `

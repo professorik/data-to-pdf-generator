@@ -1,29 +1,21 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
-import {Recipe} from "../../../../common/types/recipe/recipe.type";
-import {Container, FooterLabel, IdLabel, LeftItem, RightItem, Logo} from './styles'
-import Tip from "./tip/tip";
-import NutrientsList from "./nutrients/nutrients-list";
-import IngredientsList from "./ingredients/ingredients-list";
-import Instruction from "./instruction/instruction";
-import ImageContainer from "./photo-container/photo-container";
+import {Recipe} from "../../../../../common/types/recipe/recipe.type";
+import {Container} from './styles'
+import {FooterLabel, IdLabel, LeftItem, RightItem} from "../../recipe-wrapper/styles";
+import ImageContainer from "../../recipe-wrapper/photo-container/photo-container";
+import Tip from "../../recipe-wrapper/tip/tip";
+import NutrientsList from "../../recipe-wrapper/nutrients/nutrients-list";
+import IngredientsList from "../../recipe-wrapper/ingredients/ingredients-list";
+import Instruction from "../../recipe-wrapper/instruction/instruction";
 
 type Props = {
     recipe: Recipe;
-    num: number;
 };
 
-const RecipeWrapper: FC<Props> = ({recipe, num}) => {
-    const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0f63bf9073f183d4808a91d1716c877f1660742f/assets/Wyldr_logo_bigicon%403x.svg";
-    const divStyle = {
-        background: num % 2 === 0 ? "yellow" : "red",
-        transform: num % 2 === 0 ? "rotate(90deg);" : "rotate(-90deg);"
-    };
-    if (recipe === null){
-        return <Container style={divStyle} />
-    }
+const Leaflet: FC<Props> = ({recipe}) => {
     return (
-        <Container style={divStyle}>
+        <Container>
             <LeftItem>
                 <h4>Hi {recipe.firstname} </h4>
                 <ImageContainer
@@ -44,9 +36,8 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
             </RightItem>
             <FooterLabel>{recipe.recipe_foot_note}</FooterLabel>
             <IdLabel>{recipe.print_id}</IdLabel>
-            <Logo src={logo} />
         </Container>
-    )
+    );
 };
 
-export default RecipeWrapper;
+export default Leaflet;

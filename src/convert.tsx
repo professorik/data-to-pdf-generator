@@ -1,4 +1,5 @@
 // @ts-ignore
+
 const fs = require('fs');
 const path = require('path');
 const html = fs.readFileSync(path.join(__dirname, '../out/index.html'), 'utf8');
@@ -12,7 +13,7 @@ async function convert() {
 
 async function convertPuppeteer() {
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
     });
     const page = await browser.newPage();
     await page.setContent(html, {
@@ -20,10 +21,11 @@ async function convertPuppeteer() {
         timeout: 120000
     });
     await page.pdf({
+        preferCSSPageSize: true,
         format: 'A4',
         printBackground: true,
-        landscape: true,
         path: `./test2.pdf`,
+        scale: 1
     });
     await browser.close();
     console.log('Puppeteer export is successful.');

@@ -1,18 +1,26 @@
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 
-export const Container = styled.div`
-  display: flex;
-  margin: 5px;
+export const UserPage = styled.div`
+    &:not(:first-child){
+        margin-top: 1.7in;
+        background-color: blue;
+    }
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
 `
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    margin: 0;
+    margin: auto 0;
     box-sizing: border-box;
   }
 
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
+}
 `
