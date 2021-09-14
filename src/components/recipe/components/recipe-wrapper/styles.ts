@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-top: 40px;
+  padding: 40px 20px 20px 20px;
   position: relative;
   height: 792px;
   &:after{
