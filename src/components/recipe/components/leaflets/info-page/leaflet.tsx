@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
-import {Recipe} from "../../../../common/types/recipe/recipe.type";
+import {Recipe} from "../../../../../common/types/recipe/recipe.type";
 import {Container} from './styles'
-import {FooterLabel, IdLabel, LeftItem, RightItem} from "../recipe-wrapper/styles";
-import ImageContainer from "../photo-container/photo-container";
-import Tip from "../tip/tip";
-import NutrientsList from "../nutrients/nutrients-list";
-import IngredientsList from "../ingredients/ingredients-list";
-import Instruction from "../instruction/instruction";
+import {FooterLabel, IdLabel, LeftItem, RightItem} from "../../recipe-wrapper/styles";
+import ImageContainer from "../../recipe-wrapper/photo-container/photo-container";
+import Tip from "../../recipe-wrapper/tip/tip";
+import NutrientsList from "../../recipe-wrapper/nutrients/nutrients-list";
+import IngredientsList from "../../recipe-wrapper/ingredients/ingredients-list";
+import Instruction from "../../recipe-wrapper/instruction/instruction";
 
 type Props = {
     recipe: Recipe;
