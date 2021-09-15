@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 1122px;
-  height: 794px;
-  margin-left: -1.7in;
-  margin-right: 1.7in;
-  margin-top: 1.7in;
-  margin-bottom: 3.4in;
+  height: 939px;
+  width: 1328px;
+  display: block;
+  margin: 194px 0px 0px -194px;
   padding: 40px 20px 20px 20px;
   position: relative;
   background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/master/assets/background.png?raw=true);
@@ -18,8 +16,10 @@ export const Container = styled.div`
 `
 
 export const Kar = styled.div`
-  width: 8.3in;
-  height: 11.7in;
+  width: 939px;
+  height: 1328px;
+  display: block;
+  overflow: hidden;
 `
 
 export const Item = styled.div`

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
+  padding-left: 189px;
   display: flex;
 `
 
@@ -10,5 +11,5 @@ export const Label = styled.p`
 `
 
 export const LabelsContainer = styled.div`
-  padding-left: 10px;
+  padding-left: 45px;
 `

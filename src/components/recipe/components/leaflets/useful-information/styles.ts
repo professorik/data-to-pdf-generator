@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
+  padding-left: 189px;
   display: flex;
 `
 
@@ -17,9 +18,9 @@ export const BoldLabel = styled.b`
 export const RedLabel = styled.b`
   font-size: 12px;
   padding-right: 5px;
-  color: coral;
+  color: #ff6376;
 `
 
 export const LabelsContainer = styled.div`
-  padding-left: 10px;
+  padding-left: 45px;
 `

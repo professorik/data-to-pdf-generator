@@ -15,11 +15,9 @@ function Recipes() {
         users.map(it => (
             <UserPage>
                 <Welcome user={it}/>
-                <Info recipe={recipe}/>
-                <div>
-                    {nums.map(it => <RecipeWrapper recipe={recipe} num={it}/>)}
-                    {nums.length % 2 === 1 && <RecipeWrapper recipe={null} num={1}/>}
-                </div>
+                <Info user={it}/>
+                {nums.map(it => <RecipeWrapper recipe={recipe} num={it}/>)}
+                {nums.length % 2 === 1 && <RecipeWrapper recipe={null} num={1}/>}
             </UserPage>
         ))
     ));

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 794px;
-  height: 1122px;
+  width: 939px;
+  height: 1328px;
   padding: 40px 96px 20px 96px;
   position: relative;
   background-image: url(https://github.com/professorik/data-to-pdf-generator/blob/master/assets/background.png?raw=true);

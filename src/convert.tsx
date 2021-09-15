@@ -24,8 +24,7 @@ async function convertPuppeteer() {
         preferCSSPageSize: true,
         format: 'A4',
         printBackground: true,
-        path: `./test2.pdf`,
-        scale: 1
+        path: `./test2.pdf`
     });
     await browser.close();
     console.log('Puppeteer export is successful.');

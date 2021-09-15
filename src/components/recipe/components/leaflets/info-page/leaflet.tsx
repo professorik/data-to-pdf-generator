@@ -1,41 +1,71 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
-import {Recipe} from "../../../../../common/types/recipe/recipe.type";
-import {Container} from './styles'
-import {FooterLabel, IdLabel, LeftItem, RightItem} from "../../recipe-wrapper/styles";
-import ImageContainer from "../../recipe-wrapper/photo-container/photo-container";
-import Tip from "../../recipe-wrapper/tip/tip";
-import NutrientsList from "../../recipe-wrapper/nutrients/nutrients-list";
-import IngredientsList from "../../recipe-wrapper/ingredients/ingredients-list";
-import Instruction from "../../recipe-wrapper/instruction/instruction";
+import {User} from "../../../../../common/types/types";
+import {Container, Label} from './styles'
+import Advantage from "../advantages-item/advantage";
+import Card from "../card/card";
 
 type Props = {
-    recipe: Recipe;
+    user: User;
 };
 
-const Leaflet: FC<Props> = ({recipe}) => {
+const Leaflet: FC<Props> = ({user}) => {
     return (
         <Container>
-            <LeftItem>
-                <h4>Hi {recipe.firstname} </h4>
-                <ImageContainer
-                    imgUrl={recipe.recipe_image_url}
-                    portions={recipe.portions}
-                    name={recipe.recipe_category}
-                    time={recipe.gross_prep_time}
-                    icon={recipe.recipe_category_image_url}
+            <Label bold aqua>{user.repackaging_title1}</Label>
+            <div style={{display: "flex"}}>
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Weniger Plastik"}
+                    description={"Keine Umweltbelastung\n" +
+                    "durch unnötige\n" +
+                    "Verpackungen"}
                 />
-                <h3>{recipe.recipe_title} </h3>
-                <Tip tip={recipe.health_tip}/>
-                <NutrientsList nutrients={recipe.nutrients} label={recipe.nutrition_title}/>
-                <IngredientsList ingredients={recipe.ingredients} species={recipe.paos}
-                                 label={recipe.recipe_ingredient_title}/>
-            </LeftItem>
-            <RightItem>
-                <Instruction steps={recipe.instruction} label={recipe.recipe_instruction_title}/>
-            </RightItem>
-            <FooterLabel>{recipe.recipe_foot_note}</FooterLabel>
-            <IdLabel>{recipe.print_id}</IdLabel>
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Keine Zusatzkosten"}
+                    description={"Wir konzentrieren uns\n" +
+                    "lieber auf höchste\n" +
+                    "Qualität"}
+                />
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Mehr Vielfalt"}
+                    description={"Wähle zwischen vielen\n" +
+                    "unterschiedlichen\n" +
+                    "Rezepten"}
+                />
+            </div>
+            <Label bold aqua>{user.repackaging_title2}</Label>
+            <div style={{display: "flex"}}>
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Smartes Aufbrauchen"}
+                    description={"Haltbare Produkte\n" +
+                    "werden in anderen\n" +
+                    "Rezepten verwendet"}
+                />
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Hilfreiche Tipps"}
+                    description={"Für die Aufbewahrung\n" +
+                    "und Verwertung\n" +
+                    "übriger Zutaten"}
+                />
+                <Advantage
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    title={"Gesunde Snacks"}
+                    description={"Nährstoffreiche\n" +
+                    "Bio-Lebensmittel sind\n" +
+                    "ideal zum Snacken"}
+                />
+            </div>
+            <Card/>
+            <Label bold>{user.smart_leftover_title}</Label>
+            <Label>Wir beliefern Dich mit herkömmlichen Verpackungsgrößen und geben Dir
+                Tipps an die Hand, wie Du die übrigen Lebensmittel in Deinen wöchentlichen
+                Kochplan integrierst: Mehr Zutaten, weniger Müll!</Label>
+            <Label>{user.salutation_text} </Label>
         </Container>
     );
 };

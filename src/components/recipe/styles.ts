@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 
 export const UserPage = styled.div`
-    &:not(:first-child){
-        margin-top: 1.7in;
-        background-color: blue;
-    }
     &:after{
         content: "";
         display: table;
@@ -15,8 +11,13 @@ export const UserPage = styled.div`
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    margin: auto 0;
+    margin-left: 0;
+    margin-right: 0;
     box-sizing: border-box;
+  }
+  
+  * > p{
+    margin: 0;
   }
 
   body {
