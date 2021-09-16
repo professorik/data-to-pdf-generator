@@ -14,7 +14,14 @@ export const Container = styled.div`
 `
 
 export const Label = styled.p`
-  font-size: ${props => props.bold ? "18px;" : "14px;"};
+  font-size: 18px;
   font-weight: ${props => props.bold ? "bold;" : "normal;"}
   color: ${props => props.aqua ? "aqua;" : "black;"}
+`
+
+export const AdvContainer = styled.div`
+  display: flex;
+  text-align: justify;
+  justify-content: space-between;
+  padding: 0 100px 0 100px;
 `

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
 import {User} from "../../../../../common/types/types";
-import {Container, Label} from './styles'
+import {Container, Label, AdvContainer} from './styles'
 import Advantage from "../advantages-item/advantage";
 import Card from "../card/card";
 
@@ -50,8 +50,9 @@ const Leaflet: FC<Props> = ({user}) => {
     }
     return (
         <Container>
-            <Label bold aqua>{user.repackaging_title1}</Label>
-            <div style={{display: "flex"}}>
+            <h2 style={{color: "aqua;"}}>{user.repackaging_title1}</h2>
+            <br/><br/>
+            <AdvContainer>
                 <Advantage
                     url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
                     title={translations[0][0]}
@@ -67,9 +68,11 @@ const Leaflet: FC<Props> = ({user}) => {
                     title={translations[2][0]}
                     description={translations[2][1]}
                 />
-            </div>
-            <Label bold aqua>{user.repackaging_title2}</Label>
-            <div style={{display: "flex"}}>
+            </AdvContainer>
+            <br/><br/>
+            <h2 style={{color: "aqua;"}}>{user.repackaging_title2}</h2>
+            <br/><br/>
+            <AdvContainer>
                 <Advantage
                     url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
                     title={translations[3][0]}
@@ -85,15 +88,16 @@ const Leaflet: FC<Props> = ({user}) => {
                     title={translations[5][0]}
                     description={translations[5][1]}
                 />
-            </div>
-            <Card/>
-            <Label bold>{user.smart_leftover_title}</Label>
+            </AdvContainer>
+            <br/><br/>
+            <Card isDe={user.locale==="de"}/>
+            <br/><br/>
+            <h2>{user.smart_leftover_title}</h2>
             <Label>{text}</Label>
-            <Label>{user.salutation_text} </Label>
-            <Label>300g soy yoghurt --- With fruits for breakfast
-                305g sieved tomatos --- Season, cook and serve with pasta
-                130g pita bread --- With your favorite topping for breakfast
-                1/3 piece(s) onion --- Keep for the next delivery
+            <Label>300g soy yoghurt --- With fruits for breakfast <br/>
+                305g sieved tomatos --- Season, cook and serve with pasta <br/>
+                130g pita bread --- With your favorite topping for breakfast <br/>
+                1/3 piece(s) onion --- Keep for the next delivery <br/>
                 345g chickpea flour --- Keep for the next delivery</Label>
         </Container>
     );

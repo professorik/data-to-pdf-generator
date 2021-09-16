@@ -7,9 +7,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  & > p{
+    font-size: 18px;
+  }
 `
 
-export const Label = styled.p`
-  font-size: ${props => props.bold ? "18px;" : "14px;"}
-  font-weight: ${props => props.bold ? "bold;" : "normal;"}
+export const LabelsContainer = styled.div`
+  padding: 0 0 0 10px;
+  align-self: center;
 `
