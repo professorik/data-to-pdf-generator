@@ -2,8 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   border-radius: 10px;
-  display: flex;
   background-color: #dcfefa;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Label = styled.p`

@@ -11,16 +11,15 @@ export const Container = styled.div`
     display: table;
     clear: both;
   }
-`
-
-export const Label = styled.p`
-  font-size: 12px;
+  
+  & > p{
+    font-size: 18px;
+  }
 `
 
 export const IdLabel = styled.p`
   position: absolute;
   color: slategray;
-  font-size: 12px;
   top: 0px;
   right: 20px;
 `
@@ -33,7 +32,7 @@ export const Logo = styled.image`
   margin-right: auto
 `
 
-export const ReferralCode = styled.h3`
+export const ReferralCode = styled.h2`
   color: aqua;
   text-align: center;
 `

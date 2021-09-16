@@ -4,6 +4,13 @@ export const Container = styled.div`
   min-height: 85px;
   position: relative;
   margin: 10px 0px 10px 0px;
+  
+  & > p{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `
 
 export const Card = styled.div`
@@ -19,13 +26,9 @@ export const Ava = styled.div`
   padding-left: 5px;
 `
 
-export const Sign = styled.p`
-  font-size: 12px;
-  color: gray;
-  padding-right: 5px;
-`
-
-export const Label = styled.p`
-  font-size: 12px;
-  padding-right: 5px;
+export const Sign = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0 10px 10px;
 `

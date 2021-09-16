@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 // @ts-ignore
 import React, {FC} from "react";
-import {Card, Label, LabelsContainer} from './styles';
+import {Card, LabelsContainer, QR} from './styles';
 import {User} from "../../../../../common/types/user-leaflet/user.type";
+
 const QRCode = require('qrcode.react');
 
 type Props = {
@@ -16,15 +17,19 @@ const Referral: FC<Props> = ({user}) => {
     link = link.replace(/\s/g, '%20');
     return (
         <Card>
-            <QRCode
-                value={`https://wa.me/?text=${link}`}
-                size={64}
-                renderAs={'svg'}
-            />
+            <QR>
+                <QRCode
+                    value={`https://wa.me/?text=${link}`}
+                    size={96}
+                    renderAs={'svg'}
+                />
+            </QR>
             <LabelsContainer>
-                <Label>{user.referral_sub_text1}</Label>
-                <h3>{user.referral_code}</h3>
-                <Label>{user.referral_sub_text2}</Label>
+                <p>{user.referral_sub_text1}</p>
+                <br/>
+                <h2>{user.referral_code}</h2>
+                <br/>
+                <p>{user.referral_sub_text2}</p>
             </LabelsContainer>
         </Card>
     );

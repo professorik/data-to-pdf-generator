@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
 import {Recipe} from "../../../../common/types/recipe/recipe.type";
-import {Container, FooterLabel, IdLabel, LeftItem, RightItem, Logo,Kar} from './styles'
+import {Container, FooterLabel, IdLabel, Kar, LeftItem, Logo, RightItem} from './styles'
 import Tip from "./tip/tip";
 import NutrientsList from "./nutrients/nutrients-list";
 import IngredientsList from "./ingredients/ingredients-list";
@@ -17,12 +17,14 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
     const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const divStyle = {
         //background: num % 2 === 0 ? "yellow" : "red",
-        transform: num % 2 === 0 ? "rotate(90deg);" : "rotate(-90deg);"
+        transform: num % 2 === 0 ? "rotate(-90deg);" : "rotate(90deg);"
     };
-    if (recipe === null){
+    if (recipe === null) {
         return (
             <Kar>
-                <Container style={divStyle} />
+                <Container style={divStyle}>
+                    <Logo src={logo}/>
+                </Container>
             </Kar>
         )
     }
@@ -49,7 +51,7 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
                 </RightItem>
                 <FooterLabel>{recipe.recipe_foot_note}</FooterLabel>
                 <IdLabel>{recipe.print_id}</IdLabel>
-                <Logo src={logo} />
+                <Logo src={logo}/>
             </Container>
         </Kar>
     )

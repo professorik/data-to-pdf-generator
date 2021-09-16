@@ -99,34 +99,34 @@ WITH base AS
                   ri.unit_id, u2.display_text, lwbi.box_id
      ),
      instructions AS (
-         SELECT 
-	    ri.recipe_id AS recipe_id,
+         SELECT
+             ri.recipe_id AS recipe_id,
              u1.id AS user_id,
              CONCAT(ri.step, ' - ', ri."text" ->> u1.locale) AS recipe_instructions,
              ri.step,
-             ARRAY_AGG ( 
-                 CASE
-	            WHEN ri2.unit_id IN (2,4,10)
-	                THEN CONCAT(CEILING(ri2.value * hrplw.portions_per_recipe / r.servings), u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
-		   WHEN ri2.unit_id IN (3,13,16,19,22,23,41,42,43)
-		       THEN CONCAT(CEILING(ri2.value * hrplw.portions_per_recipe / r.servings), ' ', u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
-		    ELSE
-		        CONCAT(ri2.value * hrplw.portions_per_recipe / r.servings, ' ', u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
-	        END
-	    ) AS ingredient_list 
+             ARRAY_AGG (
+                     CASE
+                         WHEN ri2.unit_id IN (2,4,10)
+                             THEN CONCAT(CEILING(ri2.value * hrplw.portions_per_recipe / r.servings), u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
+                         WHEN ri2.unit_id IN (3,13,16,19,22,23,41,42,43)
+                             THEN CONCAT(CEILING(ri2.value * hrplw.portions_per_recipe / r.servings), ' ', u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
+                         ELSE
+                             CONCAT(ri2.value * hrplw.portions_per_recipe / r.servings, ' ', u2.display_text->> u1.locale::TEXT, ' ', s.display_text ->> u1.locale::TEXT)
+                         END
+                 ) AS ingredient_list
          FROM recipe_instructions ri
-         INNER JOIN household_recipe_portions_last_week hrplw ON hrplw.recipe_id = ri.recipe_id
-         INNER JOIN recipes r ON ri.recipe_id = r.id
-         LEFT JOIN users u1 ON u1.id = hrplw.household_owner_user_id
-         LEFT JOIN recipe_ingredients ri2 ON ri.recipe_id = ri2.recipe_id AND ri.step = ri2.recipe_instruction_id 
-         LEFT JOIN skus s ON ri2.sku_id = s.id
-         LEFT JOIN units u2 ON ri2.unit_id = u2.id
-         WHERE 
-                  ri.deleted_at IS NULL
-                  AND r.deleted_at IS NULL 
-                  AND ri2.deleted_at IS NULL
-                  AND s.deleted_at IS NULL
-         GROUP BY ri.recipe_id, u1.id, recipe_instructions, ri.step 
+                  INNER JOIN household_recipe_portions_last_week hrplw ON hrplw.recipe_id = ri.recipe_id
+                  INNER JOIN recipes r ON ri.recipe_id = r.id
+                  LEFT JOIN users u1 ON u1.id = hrplw.household_owner_user_id
+                  LEFT JOIN recipe_ingredients ri2 ON ri.recipe_id = ri2.recipe_id AND ri.step = ri2.recipe_instruction_id
+                  LEFT JOIN skus s ON ri2.sku_id = s.id
+                  LEFT JOIN units u2 ON ri2.unit_id = u2.id
+         WHERE
+             ri.deleted_at IS NULL
+           AND r.deleted_at IS NULL
+           AND ri2.deleted_at IS NULL
+           AND s.deleted_at IS NULL
+         GROUP BY ri.recipe_id, u1.id, recipe_instructions, ri.step
          ORDER BY ri.recipe_id, ri.step
      ),
      ingredients AS
@@ -198,7 +198,8 @@ WITH base AS
                  n.full_name_en,
                  n.full_name_de,
                  n.id,
-                 n.unit
+                 n.unit,
+                 n.nutrient_category_en
              ORDER BY
                  risq.recipe_id,
                  n.nutrient_category_en,
@@ -231,7 +232,7 @@ WITH base AS
              FROM base b
                       LEFT JOIN nutrients n ON n.recipe_id = b.recipe_id
              GROUP BY
-                 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27
+                 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,user_id,recipe_id
              ORDER BY
                  user_id,
                  recipe_id
@@ -305,4 +306,4 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
          32,33,34,35,36,37,38,39,
          lwbi.box_id, c.recipe_id
 ORDER BY lwbi.box_id DESC,
-         c.recipe_id ASC
+         c.recipe_id

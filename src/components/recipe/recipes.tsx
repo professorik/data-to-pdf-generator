@@ -8,7 +8,7 @@ import {getRecipes, getUser} from "../../helpers/helpers";
 function Recipes() {
     const data = getRecipes();
     const users = getUser();
-    const l = 4;//Math.floor(2+Math.random() * 4);
+    const l = 3;//Math.floor(2+Math.random() * 4);
     const nums = Array.from(Array(l).keys());
 
     const renderRecipes = data.map((recipe) => (
