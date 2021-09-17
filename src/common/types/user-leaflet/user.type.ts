@@ -1,7 +1,6 @@
 type User = {
   user_id: number;
   print_id: string;
-  email: string;
   locale: string;
   salutation_text: string,
   info_title: string,

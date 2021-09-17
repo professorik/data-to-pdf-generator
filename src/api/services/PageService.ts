@@ -5,6 +5,7 @@ const child_process = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const get_recipes = fs.readFileSync(path.join(__dirname, '../../../queries/ready_recipes.sql'));
+const get_users = fs.readFileSync(path.join(__dirname, '../../../queries/users_leaflet.sql'));
 
 @Service()
 export default class PageService {
@@ -15,14 +16,22 @@ export default class PageService {
 
     async getRecipesFromDB() {
         const client = await HttpServer.pool.connect();
-        let { rows } = await client.query(get_recipes.toString());
-        rows = await rows.filter(it => it.show !== '/hide');
-        rows = JSON.stringify(rows, null, 4);
-        await fs.writeFile(os.tmpdir()+'/DB.json', rows, (err) => {
+        let { rows: recipes } = await client.query(get_recipes.toString());
+        recipes = await recipes.filter(it => it.show !== '/hide');
+        recipes = JSON.stringify(recipes, null, 4);
+        await fs.writeFile(os.tmpdir()+'/DB.json', recipes, (err) => {
             if (err) {
                 throw err;
             }
-            console.log("JSON data is saved.");
+            console.log("Recipes JSON data is saved.");
+        });
+        let { rows: users } = await client.query(get_users.toString());
+        users = JSON.stringify(users, null, 4);
+        await fs.writeFile(os.tmpdir()+'/DB_users.json', users, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("Users JSON data is saved.");
             client.release();
             child_process.execSync('next build && next export && node src/convert.tsx');
         });

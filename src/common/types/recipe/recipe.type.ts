@@ -4,7 +4,8 @@ type Nutrient = {
 };
 
 type Recipe = {
-  recipe_id: string;
+  user_id: number;
+  recipe_id: number;
   firstname: string;
   lastname: string;
   recipe_title: string;

@@ -5,7 +5,7 @@ const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
 
 const excelPath = '';//os.tmpdir()+'/xlsxFigmaRecipeFile.xlsx';
-const jsonPath = '';//os.tmpdir()+'/DB.json';
+const jsonPath = os.tmpdir()+'/DB.json';
 
 import recipeDB from "../../../database.json"
 
@@ -16,13 +16,10 @@ const getRecipe = (
 };
 
 const getRecipes = (): Recipe[] => {
-  return getRecipe();
- /* if (fs.existsSync(excelPath)){
-    return getRecipeFromApi();
-  }else if (fs.existsSync(jsonPath)){
+  if (fs.existsSync(jsonPath)){
     return getRecipeFromApiJSON();
   }
-  return [];*/
+  return getRecipe();
 }
 
 const getRecipeFromApi = (): Recipe[] => {
@@ -43,6 +40,7 @@ const getRecipeFromApiJSON = (): Recipe[] => {
 const getRecipesListFromDB = (list):Recipe[] => {
   return list.map(it => {
     return {
+      "user_id": it.user_id,
       "recipe_id": it.recipe_id,
       "firstname": it.firstname,
       "lastname": it.lastname,
@@ -107,6 +105,7 @@ const getRecipesListFromDB = (list):Recipe[] => {
 const getRecipesList = (list):Recipe[] => {
   return list.map(it => {
     return {
+      "user_id": it.B,
       "recipe_id": it.A,
       "firstname": it.C,
       "lastname": it.D,

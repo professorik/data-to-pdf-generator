@@ -3,30 +3,29 @@
 import React from 'react';
 import {Info, RecipeWrapper, Welcome} from './components/components';
 import {GlobalStyle, UserPage} from "./styles";
-import {getRecipes, getUser} from "../../helpers/helpers";
+import {getRecipes, getUsers} from "../../helpers/helpers";
 
 function Recipes() {
     const data = getRecipes();
-    const users = getUser();
-    const l = 3;//Math.floor(2+Math.random() * 4);
-    const nums = Array.from(Array(l).keys());
+    const users = getUsers();
 
-    const renderRecipes = data.map((recipe) => (
-        users.map(it => (
+    const renderRecipes = users.map((user) => {
+        const recipes = data.filter(recipe => recipe.user_id === user.user_id);
+        return (
             <UserPage>
-                <Welcome user={it}/>
-                <Info user={it}/>
-                {nums.map(it => <RecipeWrapper recipe={recipe} num={it}/>)}
-                {nums.length % 2 === 1 && <RecipeWrapper recipe={null} num={1}/>}
+                <Welcome user={user}/>
+                <Info user={user}/>
+                {recipes.map((it, ind) => <RecipeWrapper recipe={it} num={ind}/>)}
+                {recipes.length % 2 === 1 && <RecipeWrapper recipe={null} num={1}/>}
             </UserPage>
-        ))
-    ));
+        )
+    });
 
     return (
         <>
             <GlobalStyle/>
             <React.Fragment>
-                {renderRecipes.concat(renderRecipes)}
+                {renderRecipes}
             </React.Fragment>
         </>
     );
