@@ -16,7 +16,6 @@ export const Container = styled.div`
 export const Label = styled.p`
   font-size: 18px;
   font-weight: ${props => props.bold ? "bold;" : "normal;"}
-  color: ${props => props.aqua ? "aqua;" : "black;"}
 `
 
 export const AdvContainer = styled.div`

@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, {FC} from "react";
 import { Label, Title } from "./styles";
+import InstructionItem from "../instruc-item/instruc-item";
 
 type Props = {
   steps: string[];
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const Instruction: FC<Props> = ({steps, label}) =>  {
-  const renderRecipes = steps.map(step => <Label>{step}</Label>);
+  const renderRecipes = steps.map(step => <InstructionItem step={step}/>);
 
   return (
     <div>

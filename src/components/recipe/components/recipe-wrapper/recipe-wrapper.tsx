@@ -32,7 +32,7 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
         <Kar>
             <Container style={divStyle}>
                 <LeftItem>
-                    <h4>Hi {recipe.firstname} </h4>
+                    <p>Hi <b>{recipe.firstname}</b> </p>
                     <ImageContainer
                         imgUrl={recipe.recipe_image_url}
                         portions={recipe.portions}
