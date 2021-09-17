@@ -33,6 +33,6 @@ export const Logo = styled.image`
 `
 
 export const ReferralCode = styled.h2`
-  color: aqua;
+  color: #07d7bf;
   text-align: center;
 `

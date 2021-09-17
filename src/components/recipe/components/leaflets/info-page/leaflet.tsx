@@ -50,7 +50,7 @@ const Leaflet: FC<Props> = ({user}) => {
     }
     return (
         <Container>
-            <h2 style={{color: "aqua;"}}>{user.repackaging_title1}</h2>
+            <h2 style={{color: "#07d7bf;"}}>{user.repackaging_title1}</h2>
             <br/><br/>
             <AdvContainer>
                 <Advantage
@@ -70,7 +70,7 @@ const Leaflet: FC<Props> = ({user}) => {
                 />
             </AdvContainer>
             <br/><br/>
-            <h2 style={{color: "aqua;"}}>{user.repackaging_title2}</h2>
+            <h2 style={{color: "#07d7bf;"}}>{user.repackaging_title2}</h2>
             <br/><br/>
             <AdvContainer>
                 <Advantage
