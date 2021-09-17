@@ -42,11 +42,6 @@ SELECT DISTINCT ON (u.id, lwplf.box_id) u.id                                    
                                                ou.user_id)                                                            AS print_id,
                                         u.email,
                                         u.locale,
-                                        dd.da_first_name,
-                                        dd.da_last_name,
-                                        CASE
-                                            WHEN o2.is_first_order IS NULL THEN FALSE
-                                            ELSE o2.is_first_order END                                                AS is_first_order,
                                         CASE
                                             WHEN u.locale = 'en' AND o2.is_first_order
                                                 THEN CONCAT('Welcome ', dd.da_first_name, '!')
@@ -95,28 +90,6 @@ SELECT DISTINCT ON (u.id, lwplf.box_id) u.id                                    
                                             WHEN u.locale = 'en' THEN '... and instead support clever food management!'
                                             ELSE '...und stattdessen cleveres Lebensmittelmanagement unterstützen!'
                                             END                                                                       AS repackaging_title2,
-                                        CASE WHEN u.locale = 'en' THEN '/show' ELSE '/hide' END                       AS info_text_en,
-                                        CASE WHEN u.locale = 'de' THEN '/show' ELSE '/hide' END                       AS info_text_de,
-                                        CASE WHEN u.locale = 'en' THEN '/show' ELSE '/hide' END                       AS top_icon_en,
-                                        CASE WHEN u.locale = 'de' THEN '/show' ELSE '/hide' END                       AS top_icon_de,
-                                        CASE WHEN u.locale = 'en' THEN '/show' ELSE '/hide' END                       AS bot_icon_en,
-                                        CASE WHEN u.locale = 'de' THEN '/show' ELSE '/hide' END                       AS bot_icon_de,
-                                        CASE WHEN u.locale = 'en' THEN '/show' ELSE '/hide' END                       AS leftover_text_en,
-                                        CASE WHEN u.locale = 'de' THEN '/show' ELSE '/hide' END                       AS leftover_text_de,
-                                        CASE
-                                            WHEN u.locale = 'en' AND o2.is_first_order THEN '/show'
-                                            ELSE '/hide' END                                                          AS intro_text_new_en,
-                                        CASE
-                                            WHEN u.locale = 'de' AND o2.is_first_order THEN '/show'
-                                            ELSE '/hide' END                                                          AS intro_text_new_de,
-                                        CASE
-                                            WHEN u.locale = 'en' AND (o2.is_first_order = FALSE OR is_first_order IS NULL)
-                                                THEN '/show'
-                                            ELSE '/hide' END                                                          AS intro_text_rec_en,
-                                        CASE
-                                            WHEN u.locale = 'de' AND (o2.is_first_order = FALSE OR is_first_order IS NULL)
-                                                THEN '/show'
-                                            ELSE '/hide' END                                                          AS intro_text_rec_de,
                                         array_agg(DISTINCT
                                                 CONCAT(
                                                         CASE
@@ -140,7 +113,6 @@ FROM household_recipe_portions_last_week hrplw
          LEFT JOIN lefties hl ON hl.order_id = hrplw.order_id
          LEFT JOIN last_week_box_ids lwbi ON lwbi.user_id = u.id
          LEFT JOIN leftovers_tips lt ON hl.sku_id = lt.sku_id
-GROUP BY lwplf.box_id, u.id, lwplf.delivery_pickup_block, ou.user_id, dd.da_first_name, dd.da_last_name,
-         o2.is_first_order
-ORDER BY lwplf.box_id ASC
+GROUP BY lwplf.box_id, u.id, lwplf.delivery_pickup_block, ou.user_id, o2.is_first_order, dd.da_first_name
+ORDER BY lwplf.box_id
 ;
