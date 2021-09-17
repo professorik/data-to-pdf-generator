@@ -51,7 +51,7 @@ const Leaflet: FC<Props> = ({user}) => {
     return (
         <Container>
             <h2 style={{color: "#07d7bf;"}}>{user.repackaging_title1}</h2>
-            <br/><br/>
+            <br/>
             <AdvContainer>
                 <Advantage
                     url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
@@ -69,9 +69,9 @@ const Leaflet: FC<Props> = ({user}) => {
                     description={translations[2][1]}
                 />
             </AdvContainer>
-            <br/><br/>
+            <br/>
             <h2 style={{color: "#07d7bf;"}}>{user.repackaging_title2}</h2>
-            <br/><br/>
+            <br/>
             <AdvContainer>
                 <Advantage
                     url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
@@ -91,14 +91,11 @@ const Leaflet: FC<Props> = ({user}) => {
             </AdvContainer>
             <br/><br/>
             <Card isDe={user.locale==="de"}/>
-            <br/><br/>
+            <br/>
             <h2>{user.smart_leftover_title}</h2>
             <Label>{text}</Label>
-            <Label>300g soy yoghurt --- With fruits for breakfast <br/>
-                305g sieved tomatos --- Season, cook and serve with pasta <br/>
-                130g pita bread --- With your favorite topping for breakfast <br/>
-                1/3 piece(s) onion --- Keep for the next delivery <br/>
-                345g chickpea flour --- Keep for the next delivery</Label>
+            <br/>
+            {user.leftovers_tips.map(it => <Label>{it}</Label>)}
         </Container>
     );
 };

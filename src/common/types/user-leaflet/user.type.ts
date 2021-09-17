@@ -16,7 +16,8 @@ type User = {
   referral_code: string,
   smart_leftover_title: string,
   repackaging_title1: string,
-  repackaging_title2: string
+  repackaging_title2: string,
+  leftovers_tips: string[]
 };
 
 export type { User };
