@@ -13,6 +13,41 @@ type Props = {
     num: number;
 };
 
+function checkHeight(steps: string[]) {
+    let recipesSize = 0;
+    steps.forEach(it => {
+        let info = it.split(" === ");
+        const ing = info[1].split(" ");
+        const steps = info[0].split(" ");
+        let tempSum = 0;
+        for (let i = 0; i < steps.length; i++) {
+            tempSum += steps[i].length + 1;
+            if (tempSum >= 140) {
+                ++recipesSize;
+                tempSum = 0;
+                --i;
+            }
+        }
+        if (tempSum > 0) {
+            ++recipesSize;
+            tempSum = 0;
+        }
+        for (let i = 0; i < ing.length; i++) {
+            tempSum += ing[i].length + 1;
+            if (tempSum >= 140) {
+                ++recipesSize;
+                tempSum = 0;
+                --i;
+            }
+        }
+        if (tempSum > 0) {
+            ++recipesSize;
+        }
+        ++recipesSize;
+    });
+    return recipesSize > 55;
+}
+
 const RecipeWrapper: FC<Props> = ({recipe, num}) => {
     const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const divStyle = {
@@ -27,6 +62,9 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
                 </Container>
             </Kar>
         )
+    }
+    if (checkHeight(recipe.instruction)) {
+        console.log(`\n--==Error: number of lines should be less than 50, recipe_id = ${recipe.recipe_id}==--`);
     }
     return (
         <Kar>
