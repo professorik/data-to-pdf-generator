@@ -7,7 +7,7 @@ const fs = require('fs');
 const excelPath = '';//os.tmpdir()+'/xlsxFigmaRecipeFile.xlsx';
 const jsonPath = os.tmpdir()+'/DB.json';
 
-import recipeDB from "../../../database.json"
+//import recipeDB from "../../../database.json"
 
 const getRecipe = (
 ): Recipe[] | null => {

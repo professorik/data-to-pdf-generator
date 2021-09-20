@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const jsonPath = os.tmpdir() + '/DB_users.json';
 
-import userDB from "../../../users.json"
+//import userDB from "../../../users.json"
 
 const getUser = (
 ): User[] | null => {
