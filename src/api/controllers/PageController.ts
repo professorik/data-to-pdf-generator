@@ -27,4 +27,11 @@ export class PageController {
         await promisify<string, void>(res.sendFile.bind(res))(file)
         return res;
     }
+
+    @Get('/log')
+    async log(@Res() res: any) {
+        const file = `${process.cwd()}/log.txt`;
+        await promisify<string, void>(res.sendFile.bind(res))(file)
+        return res;
+    }
 }

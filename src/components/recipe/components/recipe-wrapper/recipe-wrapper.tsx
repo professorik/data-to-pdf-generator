@@ -8,9 +8,12 @@ import IngredientsList from "./ingredients/ingredients-list";
 import Instruction from "./instruction/instruction";
 import ImageContainer from "./photo-container/photo-container";
 
+const fs = require("fs");
+
 type Props = {
     recipe: Recipe;
     num: number;
+    page: number;
 };
 
 function checkHeight(steps: string[]) {
@@ -45,13 +48,12 @@ function checkHeight(steps: string[]) {
         }
         ++recipesSize;
     });
-    return recipesSize > 55;
+    return recipesSize;
 }
 
-const RecipeWrapper: FC<Props> = ({recipe, num}) => {
+const RecipeWrapper: FC<Props> = ({recipe, num, page}) => {
     const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const divStyle = {
-        //background: num % 2 === 0 ? "yellow" : "red",
         transform: num % 2 === 0 ? "rotate(-90deg);" : "rotate(90deg);"
     };
     if (recipe === null) {
@@ -63,14 +65,17 @@ const RecipeWrapper: FC<Props> = ({recipe, num}) => {
             </Kar>
         )
     }
-    if (checkHeight(recipe.instruction)) {
-        console.log(`\n--==Error: number of lines should be less than 50, recipe_id = ${recipe.recipe_id}==--`);
+    const lines = checkHeight(recipe.instruction);
+    if (lines > 50) {
+        const message = `Error: number of lines should be less than 50, there is ${lines}, recipe_id = ${recipe.recipe_id}, page = ${page}\n`;
+        fs.writeFileSync("log.txt", message);
+        console.log(message);
     }
     return (
         <Kar>
             <Container style={divStyle}>
                 <LeftItem>
-                    <p>Hi <b>{recipe.firstname}</b> </p>
+                    <p>Hi <b>{recipe.firstname}</b></p>
                     <ImageContainer
                         imgUrl={recipe.recipe_image_url}
                         portions={recipe.portions}
