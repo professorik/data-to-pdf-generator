@@ -3,7 +3,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/professorik/data-to-pdf-generator)
 ## Features
 - Get PDF from DB
-- Send xlsx and recieve PDF
 - Generate from data PDF by command
 
 ## Installation
@@ -45,9 +44,9 @@ Supported paths:
 - api/recipes 
   - Input: none
   - Output: pdf
-- api/generate
-  - Input: xlsx **(form-data, key=input, value=*.xlsx)** 
-  - Output: pdf
+- api/log
+  - Input: none
+  - Output: log of errors
 
 
 [sl]: <https://github.com/professorik/data-to-pdf-generator/blob/e5b3128b0871b9e24c46fe77da8502c153194f12/src/server.ts#L19>
