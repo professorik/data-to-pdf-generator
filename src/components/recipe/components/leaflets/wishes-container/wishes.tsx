@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Wishes: FC<Props> = ({wishes, author}) => {
   const classes = useStyles();
-  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/author_round.png?raw=true";
+  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/Simon.png?raw=true";
   return (
     <Container>
       <Card>

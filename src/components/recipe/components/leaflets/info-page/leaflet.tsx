@@ -54,17 +54,17 @@ const Leaflet: FC<Props> = ({user}) => {
             <br/>
             <AdvContainer>
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202528.svg"}
                     title={translations[0][0]}
                     description={translations[0][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202415.svg"}
                     title={translations[1][0]}
                     description={translations[1][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202524.svg"}
                     title={translations[2][0]}
                     description={translations[2][1]}
                 />
@@ -74,17 +74,17 @@ const Leaflet: FC<Props> = ({user}) => {
             <br/>
             <AdvContainer>
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202531.svg"}
                     title={translations[3][0]}
                     description={translations[3][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202530.svg"}
                     title={translations[4][0]}
                     description={translations[4][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg"}
+                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202532.svg"}
                     title={translations[5][0]}
                     description={translations[5][1]}
                 />
