@@ -21,7 +21,6 @@ export class PageController {
     }
 
     @Get('/recipes')
-    @Header("Content-type", "application/pdf")
     async recipes(@Res() res: any) {
         await this.pageService.getRecipesFromDB();
         const file = `${process.cwd()}/test2.pdf`;
