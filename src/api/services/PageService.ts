@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const get_recipes = fs.readFileSync(path.join(__dirname, '../../../queries/ready_recipes.sql'));
 const get_users = fs.readFileSync(path.join(__dirname, '../../../queries/users_leaflet.sql'));
+const replace_all = fs.readFileSync(path.join(__dirname, '../../../queries/replacements.sql'));
 
 @Service()
 export default class PageService {
@@ -16,6 +17,7 @@ export default class PageService {
 
     async getRecipesFromDB() {
         const client = await HttpServer.pool.connect();
+        await client.query(replace_all.toString());
         let { rows: recipes } = await client.query(get_recipes.toString());
         recipes = await recipes.filter(it => it.show !== '/hide');
         recipes = JSON.stringify(recipes, null, 4);

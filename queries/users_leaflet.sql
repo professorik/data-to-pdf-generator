@@ -1,15 +1,3 @@
-CREATE OR REPLACE FUNCTION replace_leftover(i varchar)
-    RETURNS varchar AS
-$res$
-BEGIN
-    RETURN CASE
-               WHEN i = '100g Risoni Kichererbsen' THEN '100g Kichererbsen-Risoni'
-               WHEN i = 'cucumber' THEN 'tomato'
-               ELSE i
-        END;
-END;
-$res$ LANGUAGE plpgsql;
-
 WITH lefties AS
          (
              SELECT osle.order_id,
