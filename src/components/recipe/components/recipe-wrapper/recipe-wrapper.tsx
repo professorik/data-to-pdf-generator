@@ -52,6 +52,7 @@ function checkHeight(steps: string[]) {
 }
 
 const RecipeWrapper: FC<Props> = ({recipe, num, page}) => {
+    const logger = fs.createWriteStream('log.txt', {flags: 'a'})
     const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const divStyle = {
         transform: num % 2 === 0 ? "rotate(-90deg);" : "rotate(90deg);"
@@ -68,7 +69,7 @@ const RecipeWrapper: FC<Props> = ({recipe, num, page}) => {
     const lines = checkHeight(recipe.instruction);
     if (lines > 50) {
         const message = `Error: number of lines should be less than 50, there is ${lines}, recipe_id = ${recipe.recipe_id}, page = ${page}\n`;
-        fs.writeFileSync("log.txt", message);
+        logger.write(message);
         console.log(message);
     }
     return (
