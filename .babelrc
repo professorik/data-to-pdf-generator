@@ -12,5 +12,12 @@
       }
     ],
     ["@babel/plugin-proposal-decorators", { "legacy": true }]
-  ]
+  ],
+  "rules": {
+    "test": "png",
+    "loader": "file-loader",
+    "options": {
+      "name": "images/[name].[ext]"
+    }
+  }
 }

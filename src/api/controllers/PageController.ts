@@ -1,39 +1,23 @@
-import {Controller, Post, Get, UseBefore, Req, Res, Header} from 'routing-controllers';
-import fileUploadMiddleware from "../middlewares/fileUploadMiddleware";
-import { Request } from 'express';
-import PageService from "../services/PageService";
-import {promisify} from "util";
+const express = require('express');
+const router = express.Router();
+const service = require("../services/PageService");
 
-@Controller()
-export class PageController {
-    private pageService: PageService;
-    constructor(){
-        this.pageService = new PageService();
-    }
-
-    @Post('/generate')
-    @UseBefore(fileUploadMiddleware('input', 1024 * 1024 * 4))
-    async post(@Req() req: Request, @Res() res: any) {
-        await this.pageService.generatePdfFromDiskXlsx();
+router.get('/recipes', async function(req, res, next) {
+    try {
+        await service.getRecipesFromDB();
+        console.log('PDF has been generated');
         const file = `${process.cwd()}/test2.pdf`;
-        await promisify<string, void>(res.sendFile.bind(res))(file)
-        return res;
+        res.sendFile(file);
+    }catch (err){
+        console.error(err.message);
+        next(err);
     }
+});
 
-    @Get('/recipes')
-    async recipes(@Res() res: any) {
-        await this.pageService.getRecipesFromDB();
-        const file = `${process.cwd()}/test2.pdf`;
-        await res.setHeader("Content-type", "application/pdf");
-        await promisify<string, void>(await res.sendFile.bind(res))(file)
-        return res;
-    }
+router.get('/log',  (req, res) => {
+    const file = `${process.cwd()}/log.txt`;
+    res.sendFile(file);
+});
 
-    @Get('/log')
-    @Header("Content-type", "text/plain; charset=UTF-8")
-    async log(@Res() res: any) {
-        const file = `${process.cwd()}/log.txt`;
-        await promisify<string, void>(res.sendFile.bind(res))(file)
-        return res;
-    }
-}
+module.exports = router;
+export {};

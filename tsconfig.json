@@ -28,7 +28,8 @@
     "experimentalDecorators": true
   },
   "include": [
-    "src/*.tsx"
+    "src/*.tsx",
+    "custom.d.ts"
   ],
   "exclude": [
     "node_modules"
