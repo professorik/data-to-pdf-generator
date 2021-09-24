@@ -4,6 +4,8 @@ import React, {FC} from "react";
 import {Container,LabelsContainer} from './styles';
 import {Avatar} from '@material-ui/core';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+// @ts-ignore
+import icon from "../../../../../../assets/Group 2533.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -20,7 +22,6 @@ type Props = {
 
 const Card: FC<Props> = ({isDe}) => {
     const classes = useStyles();
-    const icon = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202533.svg";
     const translations = isDe? ["Du fragst dich, wofür der vorbereitete Briefumschlag ist?", "Gib deine " +
     "Baumwolltaschen optimalerweise bei der nächsten Lieferung zurück oder schicke sie " +
     "alternativ per Brief kostenlos zurück. Wir erstatten dir dann den Pfand!"]: [

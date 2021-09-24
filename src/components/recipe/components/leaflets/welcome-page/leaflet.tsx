@@ -5,16 +5,19 @@ import {Container, IdLabel, Logo, ReferralCode} from './styles'
 import Wishes from "../wishes-container/wishes";
 import Referral from "../referral-container/referral";
 import Info from "../useful-information/usefulInfo";
+// @ts-ignore
+import logo from "../../../../../../assets/Wyldr_logo_bigicon@3x.svg";
+// @ts-ignore
+import background from "../../../../../../assets/background.png";
 
 type Props = {
     user: User;
 };
 
 const Leaflet: FC<Props> = ({user}) => {
-    const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const isDe = user.locale === "de";
     return (
-        <Container>
+        <Container style={{backgroundImage: `url(${background})`}}>
             <Logo src={logo}/>
             <p>{user.salutation_text} </p>
             <br/>

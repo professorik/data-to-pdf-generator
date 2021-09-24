@@ -1,8 +1,7 @@
-import { createExpressServer } from 'routing-controllers';
 import "reflect-metadata"
 const router = require('./controllers/PageController');
-
-const app = createExpressServer();
+const express = require('express')
+const app = express();
 
 app.use('/', router);
 

@@ -7,7 +7,7 @@ BEGIN
                ELSE i
         END;
 END;
-$res$ LANGUAGE plpgsql;
+$res$ LANGUAGE plpgsql SECURITY DEFINER;
 
 CREATE OR REPLACE FUNCTION replace_instruction(i varchar)
     RETURNS varchar AS
@@ -18,7 +18,7 @@ BEGIN
                ELSE i
         END;
 END;
-$res$ LANGUAGE plpgsql;
+$res$ LANGUAGE plpgsql SECURITY DEFINER;
 
 CREATE OR REPLACE FUNCTION replace_leftover(i varchar)
     RETURNS varchar AS
@@ -30,4 +30,4 @@ BEGIN
                ELSE i
         END;
 END;
-$res$ LANGUAGE plpgsql;
+$res$ LANGUAGE plpgsql SECURITY DEFINER;

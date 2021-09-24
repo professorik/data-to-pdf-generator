@@ -11,13 +11,14 @@
         "preprocess": false
       }
     ],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["inline-import-data-uri"]
   ],
   "rules": {
     "test": "png",
     "loader": "file-loader",
     "options": {
-      "name": "images/[name].[ext]"
+      "name": "assets/[name].[ext]"
     }
   }
 }

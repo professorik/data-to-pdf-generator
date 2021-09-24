@@ -6,7 +6,7 @@ router.get('/recipes', async function(req, res, next) {
     try {
         await service.getRecipesFromDB();
         console.log('PDF has been generated');
-        const file = `${process.cwd()}/test2.pdf`;
+        const file = `${process.cwd()}/result.pdf`;
         res.sendFile(file);
     }catch (err){
         console.error(err.message);

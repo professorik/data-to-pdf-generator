@@ -7,6 +7,10 @@ import NutrientsList from "./nutrients/nutrients-list";
 import IngredientsList from "./ingredients/ingredients-list";
 import Instruction from "./instruction/instruction";
 import ImageContainer from "./photo-container/photo-container";
+// @ts-ignore
+import logo from "../../../../../assets/Wyldr_logo_bigicon@3x.svg";
+// @ts-ignore
+import background from "../../../../../assets/background.png";
 
 const fs = require("fs");
 
@@ -53,9 +57,9 @@ function checkHeight(steps: string[]) {
 
 const RecipeWrapper: FC<Props> = ({recipe, num, page}) => {
     const logger = fs.createWriteStream('log.txt', {flags: 'a'})
-    const logo = "https://raw.githubusercontent.com/professorik/data-to-pdf-generator/b0ccc2696ca093199f24f71a9a06ed17d6968c07/assets/Wyldr_logo_bigicon%403x.svg";
     const divStyle = {
-        transform: num % 2 === 0 ? "rotate(-90deg);" : "rotate(90deg);"
+        transform: num % 2 === 0 ? "rotate(-90deg);" : "rotate(90deg);",
+        backgroundImage: `url(${background})`
     };
     if (recipe === null) {
         return (

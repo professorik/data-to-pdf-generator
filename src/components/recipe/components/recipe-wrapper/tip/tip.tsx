@@ -3,14 +3,16 @@
 import React, {FC} from "react";
 import { Container, Ava, Card, Label, Sign, Icon } from './styles';
 import {Avatar} from '@material-ui/core';
+// @ts-ignore
+import lampIcon from "../../../../../../assets/light-bulb 1.png";
+// @ts-ignore
+import avatar from "../../../../../../assets/author_round.png";
 
 type Props = {
   tip: string;
 };
 
 const Tip: FC<Props> = ({tip}) => {
-  const lampIcon = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/light-bulb%201.png?raw=true";
-  const avatar = "https://github.com/professorik/data-to-pdf-generator/blob/master/assets/author_round.png?raw=true";
   return (
     <Container>
       <Icon src={lampIcon} alt={"icon_tip"} />

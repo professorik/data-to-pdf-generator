@@ -4,6 +4,20 @@ import {User} from "../../../../../common/types/types";
 import {Container, Label, AdvContainer} from './styles'
 import Advantage from "../advantages-item/advantage";
 import Card from "../card/card";
+// @ts-ignore
+import img_1 from "../../../../../../assets/Group 2528.svg";
+// @ts-ignore
+import img_2 from "../../../../../../assets/Group 2415.svg";
+// @ts-ignore
+import img_3 from "../../../../../../assets/Group 2524.svg";
+// @ts-ignore
+import img_4 from "../../../../../../assets/Group 2531.svg";
+// @ts-ignore
+import img_5 from "../../../../../../assets/Group 2530.svg";
+// @ts-ignore
+import img_6 from "../../../../../../assets/Group 2532.svg";
+// @ts-ignore
+import background from "../../../../../../assets/background.png";
 
 type Props = {
     user: User;
@@ -49,22 +63,22 @@ const Leaflet: FC<Props> = ({user}) => {
         translations[5][1] = "Organic nutrient-rich ingredients are ideal snacks";
     }
     return (
-        <Container>
+        <Container style={{backgroundImage: `url(${background})`}}>
             <h2 style={{color: "#07d7bf;"}}>{user.repackaging_title1}</h2>
             <br/>
             <AdvContainer>
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202528.svg"}
+                    url={img_1}
                     title={translations[0][0]}
                     description={translations[0][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202415.svg"}
+                    url={img_2}
                     title={translations[1][0]}
                     description={translations[1][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202524.svg"}
+                    url={img_3}
                     title={translations[2][0]}
                     description={translations[2][1]}
                 />
@@ -74,17 +88,17 @@ const Leaflet: FC<Props> = ({user}) => {
             <br/>
             <AdvContainer>
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202531.svg"}
+                    url={img_4}
                     title={translations[3][0]}
                     description={translations[3][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202530.svg"}
+                    url={img_5}
                     title={translations[4][0]}
                     description={translations[4][1]}
                 />
                 <Advantage
-                    url={"https://raw.githubusercontent.com/professorik/data-to-pdf-generator/0807f11179f77b8d08f49aaab9162888a5f91d95/assets/Group%202532.svg"}
+                    url={img_6}
                     title={translations[5][0]}
                     description={translations[5][1]}
                 />
