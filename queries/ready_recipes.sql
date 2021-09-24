@@ -327,4 +327,6 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
          32, 33, 34, 35, 36, 37, 38, 39,
          lwbi.box_id, c.recipe_id
 ORDER BY lwbi.box_id DESC,
-         c.recipe_id ASC
+         c.recipe_id ASC;
+DROP FUNCTION IF EXISTS replace_ingredient(i varchar);
+DROP FUNCTION IF EXISTS replace_instruction(i varchar);

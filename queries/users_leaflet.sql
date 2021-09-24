@@ -114,5 +114,5 @@ FROM household_recipe_portions_last_week hrplw
          LEFT JOIN last_week_box_ids lwbi ON lwbi.user_id = u.id
          LEFT JOIN leftovers_tips lt ON hl.sku_id = lt.sku_id
 GROUP BY lwplf.box_id, u.id, lwplf.delivery_pickup_block, ou.user_id, o2.is_first_order, dd.da_first_name
-ORDER BY lwplf.box_id
-;
+ORDER BY lwplf.box_id;
+DROP FUNCTION IF EXISTS replace_leftover(i varchar);
