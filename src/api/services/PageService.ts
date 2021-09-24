@@ -6,6 +6,7 @@ const path = require('path');
 const get_recipes = fs.readFileSync(path.join(__dirname, '../../../queries/ready_recipes.sql'));
 const get_users = fs.readFileSync(path.join(__dirname, '../../../queries/users_leaflet.sql'));
 const replace_all = fs.readFileSync(path.join(__dirname, '../../../queries/replacements.sql'));
+const finish = fs.readFileSync(path.join(__dirname, '../../../queries/finish.sql'));
 
 async function getRecipesFromDB() {
     //clear log
@@ -26,6 +27,9 @@ async function getRecipesFromDB() {
     users = JSON.stringify(users, null, 4);
     fs.writeFileSync(os.tmpdir() + '/DB_users.json', users);
     console.log("Step 3 - users has been written");
+
+    await client.query(finish.toString());
+    console.log("Step 4 - finished sql");
 
     await client.release();
     //run pdf generator script
