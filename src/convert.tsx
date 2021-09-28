@@ -13,12 +13,16 @@ async function convert() {
 
 async function convertPuppeteer() {
     const browser = await puppeteer.launch({
+        pipe: true,
+        args: ['--headless', '--disable-gpu', '--full-memory-crash-report', '--unlimited-storage',
+            '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+        ignoreHTTPSErrors: true,
         headless: true,
     });
     const page = await browser.newPage();
-    await page.setContent(html, {
-        waitUntil: ['domcontentloaded', 'networkidle2', 'networkidle0', 'load'],
-        timeout: 120000
+    await page.setDefaultNavigationTimeout(0);
+    await page.goto('file://' + path.join(__dirname, '../out/index.html'),{
+        waitUntil: ['domcontentloaded', 'networkidle2', 'networkidle0', 'load']
     });
     await page.pdf({
         preferCSSPageSize: true,

@@ -7,7 +7,28 @@ router.get('/recipes', async function(req, res, next) {
         await service.getRecipesFromDB();
         console.log('PDF has been generated');
         const file = `${process.cwd()}/result.pdf`;
-        res.sendFile(file);
+        await res.sendFile(file);
+    }catch (err){
+        console.error(err.message);
+        next(err);
+    }
+});
+
+router.get('/generate', async function(req, res, next) {
+    try {
+        await service.getRecipesFromDB();
+        console.log('PDF has been generated');
+        res.send('PDF has been generated, enter http://localhost:5000/get')
+    }catch (err){
+        console.error(err.message);
+        next(err);
+    }
+});
+
+router.get('/get', async function(req, res, next) {
+    try {
+        const file = `${process.cwd()}/result.pdf`;
+        await res.sendFile(file);
     }catch (err){
         console.error(err.message);
         next(err);

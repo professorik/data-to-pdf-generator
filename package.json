@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "next",
-    "con": "node src/convert.tsx",
+    "con": "node --max_old_space_size=4096 src/convert.tsx",
     "build": "next build && next export",
     "convert": "cross-env NODE_OPTIONS=--max_old_space_size=4096 next build && next export && node --max_old_space_size=4096 src/convert.tsx",
     "devser": "ts-node-dev src/index.ts"
