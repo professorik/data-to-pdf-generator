@@ -33,7 +33,7 @@ async function getRecipesFromDB() {
 
     await client.release();
     //run pdf generator script
-    await child_process.execSync('next build && next export && node src/convert.tsx');
+    await child_process.execSync('cross-env NODE_OPTIONS=--max_old_space_size=4096 next build && next export && node --max_old_space_size=4096 src/convert.tsx');
 }
 
 module.exports = {getRecipesFromDB}
