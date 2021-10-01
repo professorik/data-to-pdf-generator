@@ -47,7 +47,12 @@ Supported paths:
 - api/log
   - Input: none
   - Output: log of errors
-
+- api/generate
+  - Input: none
+  - Output: none
+- api/get
+  - Input: none
+  - Output: pdf
 
 [sl]: <https://github.com/professorik/data-to-pdf-generator/blob/e5b3128b0871b9e24c46fe77da8502c153194f12/src/server.ts#L19>
 [slash1]: <https://github.com/professorik/data-to-pdf-generator/blob/f67933b906b99dfdfe24e55b88ef479513ac8994/src/api/controllers/PageController.ts#L18>
