@@ -18,7 +18,7 @@ router.get('/generate', async function(req, res, next) {
     try {
         await service.getRecipesFromDB();
         console.log('PDF has been generated');
-        res.send('PDF has been generated, enter http://localhost:5000/get')
+        res.redirect('/get');
     }catch (err){
         console.error(err.message);
         next(err);
